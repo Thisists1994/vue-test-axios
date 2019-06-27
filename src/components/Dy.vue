@@ -1,30 +1,11 @@
 <template>
-<div class="dy">
-  <Myfilm txt='影院热映'>
-    <MyBanner  swipeid='asd2' :slidesPerView='3.5' :loop='false' :spaceBetween='10' slot='film'>
-      <div v-for='item in arr' class="img1 swiper-slide" :key='item.id' slot='swiper-con'>
-        <img :src="item.img">
-        <span>{{ item.title }}</span><br/>
-        <div class="score">
-          <img src="../assets/images/rating_star_small_on.png">
-          <img src="../assets/images/rating_star_small_on.png">
-          <img src="../assets/images/rating_star_small_on.png">
-          <img src="../assets/images/rating_star_small_half.png">
-          <img src="../assets/images/rating_star_small_off.png">
-        </div>
-        <span slot='pf' class="pf">{{ item.pf }}</span>
-      </div>
-    </MyBanner>
-  </Myfilm>
-  <Tuisong>
-    <img src="../assets/images/banner/01.jpg" slot='top'>
-		<h4 slot='text'>前文艺片扛把子耿乐秒变老司机，拒绝和夏雨组CP</h4>
-  </Tuisong>
-  <Myfilm txt='影院即将上映'>
-    <MyBanner swipeid='asd2' :slidesPerView='3.5' :loop='false' :spaceBetween='10' slot='film'>
-        <div v-for='item in arr' class="img1 swiper-slide" :key='item.id' slot='swiper-con'>
+  <div class="dy">
+    <Myfilm txt="影院热映" @enlarge-text="fn5()">
+      <MyBanner swipeid="asd2" :slidesPerView="3.5" :loop="false" :spaceBetween="10" slot="film">
+        <div v-for="item in arr" class="img1 swiper-slide" :key="item.id" slot="swiper-con">
           <img :src="item.img">
-          <span>{{ item.title }}</span><br/>
+          <span>{{ item.title }}</span>
+          <br>
           <div class="score">
             <img src="../assets/images/rating_star_small_on.png">
             <img src="../assets/images/rating_star_small_on.png">
@@ -32,17 +13,40 @@
             <img src="../assets/images/rating_star_small_half.png">
             <img src="../assets/images/rating_star_small_off.png">
           </div>
-          <span slot='pf' class="pf">{{ item.pf }}</span>
+          <span slot="pf" class="pf">{{ item.pf }}</span>
         </div>
-    </MyBanner>
-  </Myfilm>
-</div>
+      </MyBanner>
+    </Myfilm>
+    <Tuisong>
+      <img src="../assets/images/banner/01.jpg" slot="top">
+      <h4 slot="text">前文艺片扛把子耿乐秒变老司机，拒绝和夏雨组CP</h4>
+    </Tuisong>
+    <!-- 这里可以将仿佛传递给子级组件Film使用 -->
+    <Myfilm :txt="'影院即将上映'" @enlarge-text="fn5()">
+      <MyBanner swipeid="asd2" :slidesPerView="3.5" :loop="false" :spaceBetween="10" slot="film">
+        <div v-for="item in arr" class="img1 swiper-slide" :key="item.id" slot="swiper-con">
+          <img :src="item.img">
+          <span>{{ item.title }}</span>
+          <br>
+          <div class="score">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_half.png">
+            <img src="../assets/images/rating_star_small_off.png">
+          </div>
+          <span slot="pf" class="pf">{{ item.pf }}</span>
+        </div>
+      </MyBanner>
+    </Myfilm>
+  </div>
 </template>
 
 <script>
 // import MyBanner from "../components/Banner.vue";
-import Tuisong from "../components/Tuisong.vue";
 // import Film from "./Film";
+// MyBanner和Film 已经在main.js里放到了全局,可以作为全局组件使用,不需要再单独import
+import Tuisong from "../components/Tuisong.vue";
 export default {
   data() {
     return {
@@ -88,8 +92,13 @@ export default {
   },
   components: {
     // MyBanner,
-    Tuisong,
-    // Film,
+    Tuisong
+    // Film
+  },
+  methods: {
+    fn5() {
+      console.log("电影父级方法传给Film子级用");
+    }
   }
 };
 </script>

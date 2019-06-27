@@ -1,13 +1,21 @@
 <template>
-<div class="broadcast">
-		<MyHeader>
-			<span class='title' slot='search'><router-link to='/hello'>广播</router-link></span>
-			<span slot='ltImg' class="ltImg"><img src="../../assets/images/ic_group_search.png"></span>
-			<span slot='rtImg' class="rtImg"><router-link to='/'><img src="../../assets/images/ic_chat_green.png"></router-link></span>
-		</MyHeader>
+  <div class="broadcast">
+    <MyHeader>
+      <span class="title" slot="search">
+        <router-link to="/hello">广播</router-link>
+      </span>
+      <span slot="ltImg" class="ltImg">
+        <img src="../../assets/images/ic_group_search.png">
+      </span>
+      <span slot="rtImg" class="rtImg">
+        <router-link to="/">
+          <img src="../../assets/images/ic_chat_green.png">
+        </router-link>
+      </span>
+    </MyHeader>
     <div class="height"></div>
     <MyPage3></MyPage3>
-</div>
+  </div>
 </template>
 
 <script>
@@ -22,7 +30,7 @@ export default {
 </script>
 
 <style>
-.broadcast span a{
+.broadcast span a {
   color: black;
 }
 .ltImg img {

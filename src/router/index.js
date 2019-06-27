@@ -1,16 +1,17 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Audio from '../pages/audio/audio'
-import Dy from '../components/Dy'
-import Ds from '../components/Ds'
-import Dshi from '../components/Dshi'
-import Tc from '../components/Tc'
-import Music from '../components/Music'
-import Broadcast from '../pages/broadcast/broadcast'
-import MyPlayer from '../components/MyPlayer'
+import Vue from 'vue';
+import Router from 'vue-router';
+import HelloWorld from '@/components/HelloWorld';
+import Audio from '../pages/audio/audio';
+import Dy from '../components/Dy';
+import Ds from '../components/Ds';
+import Dshi from '../components/Dshi';
+import Tc from '../components/Tc';
+import Music from '../components/Music';
+import Broadcast from '../pages/broadcast/broadcast';
+import MyPlayer from '../components/MyPlayer';
+import WyCloudApi from '../components/WyCloudApi';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -59,12 +60,17 @@ export default new Router({
     {
       path: '/broadcast',
       name: 'Broadcast',
-      component: Broadcast,
+      component: Broadcast
     },
     {
       path: '/MyPlayer',
       name: 'MyPlayer',
-      component: MyPlayer,
+      component: MyPlayer
+    },
+    {
+      path: '/WyCloudApi',
+      name: 'WyCloudApi',
+      component: WyCloudApi
     }
   ]
-})
+});

@@ -1,52 +1,56 @@
 <template>
   <div class="ds">
-    <Film txt='新书速递'>
-      <MyBanner swipeid='asd2' :slidesPerView='3.5' :loop='false' :spaceBetween='10' slot='film'>
-					<div v-for='item in arr' class="img1 swiper-slide" :key='item.id' slot='swiper-con'>
-						<img :src="item.cover" class="IMG1">
-						<span>{{ item.title }}</span><br/>
-						<div class="score">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_half.png">
-							<img src="../assets/images/rating_star_small_off.png">
-						</div>
-						<span slot='pf' class="pf">评分{{ item.rate }}</span>
-					</div>
-			</MyBanner>
+    <Film txt="新书速递1" @enlarge-text="fn5()">
+      <MyBanner swipeid="asd2" :slidesPerView="3.5" :loop="false" :spaceBetween="10" slot="film">
+        <div v-for="item in arr" class="img1 swiper-slide" :key="item.id" slot="swiper-con">
+          <img :src="item.cover" class="IMG1">
+          <span>{{ item.title }}</span>
+          <br>
+          <div class="score">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_half.png">
+            <img src="../assets/images/rating_star_small_off.png">
+          </div>
+          <span slot="pf" class="pf">评分{{ item.rate }}</span>
+        </div>
+      </MyBanner>
     </Film>
-    <Film txt='新书速递'>
-      <MyBanner swipeid='asd2' :slidesPerView='3.5' :loop='false' :spaceBetween='10' slot='film'>
-					<div v-for='item in arr1' class="img1 swiper-slide" :key='item.id' slot='swiper-con'>
-						<img :src="item.cover" class="IMG1">
-						<span>{{ item.title }}</span><br/>
-						<div class="score">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_half.png">
-							<img src="../assets/images/rating_star_small_off.png">
-						</div>
-						<span slot='pf' class="pf">评分{{ item.rate }}</span>
-					</div>
-			</MyBanner>
+    <Film txt="新书速递2" @enlarge-text="fn5()">
+      <MyBanner swipeid="asd2" :slidesPerView="3.5" :loop="false" :spaceBetween="10" slot="film">
+        <div v-for="item in arr1" class="img1 swiper-slide" :key="item.id" slot="swiper-con">
+          <img :src="item.cover" class="IMG1">
+          <span>{{ item.title }}</span>
+          <br>
+          <div class="score">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_half.png">
+            <img src="../assets/images/rating_star_small_off.png">
+          </div>
+          <span slot="pf" class="pf">评分{{ item.rate }}</span>
+        </div>
+      </MyBanner>
     </Film>
-    <Film txt='新书速递'>
-      <MyBanner swipeid='asd2' :slidesPerView='3.5' :loop='false' :spaceBetween='10' slot='film'>
-					<div v-for='item in arr2' class="img1 swiper-slide" :key='item.id' slot='swiper-con'>
-						<img :src="item.cover" class="IMG1">
-						<span>{{ item.title }}</span><br/>
-						<div class="score">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_on.png">
-							<img src="../assets/images/rating_star_small_half.png">
-							<img src="../assets/images/rating_star_small_off.png">
-						</div>
-						<span slot='pf' class="pf">评分{{ item.rate }}</span>
-					</div>
-			</MyBanner>
+    <Film txt="新书速递3" @enlarge-text="fn5()">
+      <!-- 这里是把MyBanner组件放入了Film组件的slot槽中 -->
+      <MyBanner swipeid="asd2" :slidesPerView="3.5" :loop="false" :spaceBetween="10" slot="film">
+        <div v-for="item in arr2" class="img1 swiper-slide" :key="item.id" slot="swiper-con">
+          <img :src="item.cover" class="IMG1">
+          <span>{{ item.title }}</span>
+          <br>
+          <div class="score">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_on.png">
+            <img src="../assets/images/rating_star_small_half.png">
+            <img src="../assets/images/rating_star_small_off.png">
+          </div>
+          <span slot="pf" class="pf">评分{{ item.rate }}</span>
+        </div>
+      </MyBanner>
     </Film>
   </div>
 </template>
@@ -54,7 +58,7 @@
 <script>
 import MyBanner from "./Banner";
 import Film from "./Film";
-// import { fn3 } from "../../src/assets/libs/js/axios.js";
+import { fn3 } from "../../src/assets/libs/js/axios.js";
 export default {
   data() {
     return {
@@ -62,13 +66,13 @@ export default {
       arr1: [],
       arr2: [],
       url: "static/data/banner.json",
-      fn1:  response => {
+      fn1: response => {
         console.log(response.data.subjects);
-        console.log(this)
+        console.log(this);
         this.arr = response.data.subjects.slice(33, 39);
         this.arr1 = response.data.subjects.slice(7, 11);
         this.arr2 = response.data.subjects.slice(25, 31);
-      },
+      }
     };
   },
   components: {
@@ -78,15 +82,22 @@ export default {
   mounted: function() {
     //页面挂载前执行axios获取数据
     this.fn();
-
   },
   methods: {
     fn() {
-      this.$http.get().then(this.fn1);
+      //vue原型上增加axios main.js里未配置默认请求地址时候传入url
+      // this.$http.get(this.url).then(this.fn1);
+      this.axios({
+        url: this.url
+      }).then(this.fn1);
+      // fn3(this, null, this.fn1); // 结合vue-axios使用
+      //  this.axios.get(this.url).then(this.fn1);
+    },
+    fn5() {
+      console.log("读书父级方法传给Film子级用");
     }
   }
 };
-//  this.axios.get(this.url).then(this.fn1);
 // response => {
 //         console.log(response.data.subjects);
 //         this.arr = response.data.subjects.slice(0, 6);

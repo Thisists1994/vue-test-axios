@@ -1,14 +1,23 @@
 <template>
-	<div class="filmList" id="filmcomponent">
-		<p>{{ txt }}<span>更多<i>></i></span></p>
-		<slot name='film'></slot>
-	</div>
+  <div class="filmList" id="filmcomponent">
+    <p>
+      {{ txt }}
+      <span>
+        更多
+        <i>></i>
+      </span>
+    </p>
+    <!-- 通过$emit 接收父级传递过来的方法 -->
+    <button @click="$emit('enlarge-text')">调用父级传递过来的方法</button>
+    <slot name="film"></slot>
+  </div>
 </template>
 
 <script type="text/javascript">
 export default {
   props: ["txt"],
-  name: "filmComponent"
+  name: "filmComponent",
+  methods: {}
 };
 </script>
 

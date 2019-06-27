@@ -1,20 +1,8 @@
-
 var fn3 = (el, url, fn1) => {
-  el.axios.get(url).then(fn1)
-}
+  el.axios.get(url).then(fn1);
+};
 
-export { fn3 }
-
-
-
-
-
-
-
-
-
-
-
+export { fn3 };
 
 //var fn3 = (url, fn1) => {
 //   axios.get(url).then(fn1)
